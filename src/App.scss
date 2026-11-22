@@ -1,9 +1,13 @@
+@use '@styles/toolkit' as kit;
+
 .portfolio {
-  max-width: 64rem;
+  max-width: kit.rem(1024);
   margin-inline: auto;
-  padding: 1rem;
+  padding: kit.rem(16);
 
   &__title {
+    @include kit.fluid-text(32, 24);
+
     line-height: 1.2;
   }
 }

@@ -25,3 +25,33 @@ If you are developing a production application, we recommend using TypeScript wi
 - `npm run check` проверяет форматирование, запускает оба линтера и собирает проект.
 
 Стили компонента можно импортировать прямо из JSX, как в `src/App.jsx`. Для имён классов Stylelint проверяет запись БЭМ с двойным дефисом для модификаторов, например `.project-card`, `.project-card__title` и `.project-card--featured`. Проверка охватывает и вложенные селекторы SCSS с `&`.
+
+## Общие SCSS-инструменты
+
+В стилях любого компонента подключайте набор через `@use '@styles/toolkit' as kit;`. Псевдоним `@styles` в Vite указывает на `src/styles`, поэтому путь одинаков на любой глубине. Сам импорт не добавляет CSS в сборку.
+
+```scss
+@use '@styles/toolkit' as kit;
+
+.project-card {
+  padding: kit.rem(24);
+
+  @include kit.mobile {
+    padding: kit.rem(16);
+  }
+
+  &__title {
+    @include kit.fluid-text(40, 24);
+  }
+}
+```
+
+Стили конкретного компонента храните рядом с его JSX. Общие инструменты лежат в `src/styles/toolkit/` и экспортируются через `_index.scss`.
+
+| Файл              | Что в нём менять                                                                                         |
+| ----------------- | -------------------------------------------------------------------------------------------------------- |
+| `_functions.scss` | Пересчёт размеров через `rem` и `fluid`. Передавайте числа без единиц, для `fluid` первым идёт максимум. |
+| `_media.scss`     | Брейкпоинты `laptop`, `tablet`, `mobile`, `mobile-s`, варианты `-above` и миксин `hover`.                |
+| `_mixins.scss`    | `fluid-text`, `square`, `abs-center`, `abs-x`, `abs-y`, `hide`, `show` и `visually-hidden`.              |
+
+Набор включён в проект исходниками. При обновлении сверяйте изменения в каталоге `helpers/` с [исходной версией scss-toolkit](https://github.com/sl1dan3/scss-toolkit/tree/5dc59f6f9b2c2fd25428feada9dfe4cb6547ca6e/helpers) и запускайте `npm run check`.
