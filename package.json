@@ -6,8 +6,14 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "lint": "npm run lint:js && npm run lint:styles",
+    "preview": "vite preview",
+    "lint:js": "eslint . --max-warnings=0",
+    "lint:styles": "stylelint \"src/**/*.{css,scss}\" --max-warnings 0",
+    "lint:fix": "npm run lint:js -- --fix && npm run lint:styles -- --fix",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "check": "npm run format:check && npm run lint && npm run build"
   },
   "dependencies": {
     "react": "^19.3.1",
@@ -22,6 +28,10 @@
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.7",
     "globals": "^17.13.0",
+    "prettier": "3.10.1",
+    "sass": "^1.108.2",
+    "stylelint": "^18.1.0",
+    "stylelint-config-standard-scss": "^18.0.0",
     "vite": "^8.3.6"
   }
 }
