@@ -1,0 +1,5 @@
+@use 'toolkit' as kit;
+
+.visually-hidden {
+  @include kit.visually-hidden;
+}

@@ -24,7 +24,7 @@ If you are developing a production application, we recommend using TypeScript wi
 - `npm run lint:fix` применяет доступные автоисправления линтеров.
 - `npm run check` проверяет форматирование, запускает оба линтера и собирает проект.
 
-Стили компонента можно импортировать прямо из JSX, как в `src/App.jsx`. Для имён классов Stylelint проверяет запись БЭМ с двойным дефисом для модификаторов, например `.project-card`, `.project-card__title` и `.project-card--featured`. Проверка охватывает и вложенные селекторы SCSS с `&`.
+Общая точка входа для стилей — `src/styles/index.scss`. Она подключена в `src/main.jsx`. Для имён классов Stylelint проверяет запись БЭМ с двойным дефисом для модификаторов, например `.project-card`, `.project-card__title` и `.project-card--featured`. Проверка охватывает и вложенные селекторы SCSS с `&`.
 
 ## Общие SCSS-инструменты
 
@@ -46,7 +46,7 @@ If you are developing a production application, we recommend using TypeScript wi
 }
 ```
 
-Стили конкретного компонента храните рядом с его JSX. Общие инструменты лежат в `src/styles/toolkit/` и экспортируются через `_index.scss`.
+Стили отдельных блоков храните в `src/styles/components/` и подключайте через `@use` в `src/styles/index.scss`. Общие инструменты лежат в `src/styles/toolkit/` и экспортируются через `_index.scss`.
 
 | Файл              | Что в нём менять                                                                                         |
 | ----------------- | -------------------------------------------------------------------------------------------------------- |
