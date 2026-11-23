@@ -4,6 +4,13 @@
   font-size: functions.fluid($max, $min);
 }
 
+@mixin section-title {
+  @include fluid-text(76, 46);
+
+  line-height: 1;
+  letter-spacing: -0.055em;
+}
+
 @mixin hide {
   opacity: 0;
   visibility: hidden;

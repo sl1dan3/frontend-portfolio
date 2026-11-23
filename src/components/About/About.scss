@@ -1,0 +1,91 @@
+@use '@styles/toolkit' as kit;
+
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1.7fr;
+  gap: kit.fluid(80, 24);
+  padding-block: kit.fluid(104, 48);
+  border-top: 1px solid var(--color-rule);
+
+  &__intro {
+    justify-self: start;
+    max-width: 100%;
+  }
+
+  &__title {
+    @include kit.section-title;
+
+    margin: 0;
+  }
+
+  &__graph {
+    display: block;
+
+    // Let the title set the intrinsic width, then fill it with the graph.
+    width: 0;
+    min-width: 100%;
+    height: auto;
+    margin-top: kit.fluid(48, 12);
+    color: var(--color-accent);
+    stroke: currentcolor;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+  }
+
+  &__trunk {
+    opacity: 0.5;
+  }
+
+  &__commits {
+    fill: var(--color-background);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    &__graph--visible &__branch {
+      stroke-dasharray: 1;
+      animation: about-draw-branch 1.8s ease-out both;
+    }
+  }
+
+  &__copy {
+    max-width: 60ch;
+    font-size: kit.fluid(20, 17);
+
+    p {
+      margin: 0;
+    }
+
+    p + p {
+      margin-top: 1.2em;
+    }
+  }
+
+  &__lead {
+    color: var(--color-accent);
+    font-size: kit.fluid(35, 24);
+    line-height: 1.22;
+    letter-spacing: -0.035em;
+  }
+
+  @include kit.mobile {
+    grid-template-columns: 1fr;
+
+    &__graph {
+      display: none;
+    }
+
+    &__copy {
+      max-width: none;
+    }
+  }
+}
+
+@keyframes about-draw-branch {
+  from {
+    stroke-dashoffset: 1;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}

@@ -69,60 +69,58 @@ export default function Skills() {
       <h2 className="skills__title" id="skills-title">
         Skills
       </h2>
-      <div>
-        <div
-          className="skills__tabs"
-          role="tablist"
-          aria-labelledby="skills-title"
-        >
-          {skillGroups.map(({ id, title }, index) => (
-            <button
-              className="skills__tab"
-              key={id}
-              ref={(element) => {
-                tabs.current[index] = element
-              }}
-              type="button"
-              role="tab"
-              id={'tab-' + id}
-              aria-controls={'panel-' + id}
-              aria-selected={activeId === id}
-              tabIndex={activeId === id ? 0 : -1}
-              onFocus={() => setActiveId(id)}
-              onClick={() => setActiveId(id)}
-              onKeyDown={(event) => handleTabKey(event, index)}
-            >
-              {title}
-            </button>
-          ))}
-        </div>
-        {skillGroups.map(({ id, title, skills, mark }) => (
-          <div
+      <div
+        className="skills__tabs"
+        role="tablist"
+        aria-labelledby="skills-title"
+      >
+        {skillGroups.map(({ id, title }, index) => (
+          <button
+            className="skills__tab"
             key={id}
-            className="skills__panel"
-            role="tabpanel"
-            id={'panel-' + id}
-            aria-labelledby={'tab-' + id}
-            hidden={activeId !== id}
-            tabIndex={0}
+            ref={(element) => {
+              tabs.current[index] = element
+            }}
+            type="button"
+            role="tab"
+            id={'tab-' + id}
+            aria-controls={'panel-' + id}
+            aria-selected={activeId === id}
+            tabIndex={activeId === id ? 0 : -1}
+            onFocus={() => setActiveId(id)}
+            onClick={() => setActiveId(id)}
+            onKeyDown={(event) => handleTabKey(event, index)}
           >
-            <div className="skills__content">
-              <h3 className="skills__heading">{title}</h3>
-              <ul className="skills__list">
-                {skills.map((skill) => (
-                  <li key={skill}>{skill}</li>
-                ))}
-              </ul>
-            </div>
-            <span
-              className={`skills__mark skills__mark--${id}`}
-              aria-hidden="true"
-            >
-              {mark}
-            </span>
-          </div>
+            {title}
+          </button>
         ))}
       </div>
+      {skillGroups.map(({ id, title, skills, mark }) => (
+        <div
+          key={id}
+          className="skills__panel"
+          role="tabpanel"
+          id={'panel-' + id}
+          aria-labelledby={'tab-' + id}
+          hidden={activeId !== id}
+          tabIndex={0}
+        >
+          <div>
+            <h3 className="skills__heading">{title}</h3>
+            <ul className="skills__list">
+              {skills.map((skill) => (
+                <li key={skill}>{skill}</li>
+              ))}
+            </ul>
+          </div>
+          <span
+            className={`skills__mark skills__mark--${id}`}
+            aria-hidden="true"
+          >
+            {mark}
+          </span>
+        </div>
+      ))}
     </section>
   )
 }

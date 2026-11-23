@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react'
 const navigation = [
   { id: 'home', label: 'Home' },
   { id: 'skills', label: 'Skills' },
+  { id: 'about', label: 'About' },
 ]
 
 export default function Header() {

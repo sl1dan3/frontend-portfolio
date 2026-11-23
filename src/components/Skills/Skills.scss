@@ -5,11 +5,9 @@
   border-top: 1px solid var(--color-rule);
 
   &__title {
-    @include kit.fluid-text(76, 46);
+    @include kit.section-title;
 
     margin: 0 0 kit.fluid(40, 24);
-    line-height: 1;
-    letter-spacing: -0.055em;
   }
 
   &__tabs {
