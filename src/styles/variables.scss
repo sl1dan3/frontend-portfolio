@@ -1,3 +1,5 @@
+@use 'toolkit' as kit;
+
 :root {
   color-scheme: light;
 
@@ -25,4 +27,10 @@
   --art-dot: #526082;
   --footer-background: #222f50;
   --footer-text: #f3f5ff;
+}
+
+@include kit.mobile {
+  :root {
+    --header-height: 4rem;
+  }
 }

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import HeaderNavigation from './HeaderNavigation'
 import ThemeToggle from './ThemeToggle'
 
 const navigation = [
@@ -77,21 +78,7 @@ export default function Header() {
           height="46"
         />
       </a>
-      <nav className="header__nav" aria-label="Main navigation">
-        <ul className="header__links">
-          {navigation.map(({ id, label }) => (
-            <li key={id}>
-              <a
-                className="header__link"
-                href={'#' + id}
-                aria-current={activeId === id ? 'location' : undefined}
-              >
-                {label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
+      <HeaderNavigation items={navigation} activeId={activeId} />
       <ThemeToggle />
     </header>
   )
