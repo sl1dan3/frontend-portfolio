@@ -4,7 +4,7 @@ const contours = Array.from({ length: 36 }, (_, index) => index)
 export default function Hero() {
   return (
     <section className="hero" aria-labelledby="hero-title">
-      <div className="hero__intro">
+      <div>
         <h1 className="hero__name" id="hero-title">
           Arseniy Dementev
         </h1>
