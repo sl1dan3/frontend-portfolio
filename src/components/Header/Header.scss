@@ -16,6 +16,23 @@
     border-radius: kit.rem(10);
   }
 
+  &__nav {
+    margin-inline: auto 1rem;
+  }
+
+  &__theme {
+    display: grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 1px solid var(--color-rule);
+    border-radius: 50%;
+    color: var(--color-accent);
+    background: var(--color-background);
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
   &__links {
     display: flex;
     flex-wrap: wrap;
@@ -55,4 +72,8 @@
       @include kit.visually-hidden;
     }
   }
+}
+
+:root[data-theme='dark'] .header__brand img {
+  filter: brightness(0) saturate(100%) invert(83%);
 }

@@ -1,57 +1,33 @@
-# React + Vite
+# Arseniy Dementev — Frontend Engineer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A single-page portfolio built with React, Vite and SCSS. It introduces Arseniy, groups his frontend skills into six keyboard-accessible tabs, and includes his background and contact details. The theme follows the system preference until the visitor chooses light or dark mode.
 
-Currently, two official plugins are available:
+## Local development
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Use the Node.js version in `.nvmrc` (26.8.2), then run:
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-
-## Локальная разработка
-
-Установите зависимости командой `npm ci` и запустите Vite через `npm run dev`.
-
-- `npm run format` форматирует исходники и конфигурацию с помощью Prettier.
-- `npm run lint` запускает ESLint для JavaScript и JSX и Stylelint для CSS и SCSS в `src`.
-- `npm run lint:fix` применяет доступные автоисправления линтеров.
-- `npm run check` проверяет форматирование, запускает оба линтера и собирает проект.
-
-Общая точка входа для стилей — `src/styles/index.scss`. Она подключена в `src/main.jsx`. Для имён классов Stylelint проверяет запись БЭМ с двойным дефисом для модификаторов, например `.project-card`, `.project-card__title` и `.project-card--featured`. Проверка охватывает и вложенные селекторы SCSS с `&`.
-
-## Общие SCSS-инструменты
-
-В стилях любого компонента подключайте набор через `@use '@styles/toolkit' as kit;`. Псевдоним `@styles` в Vite указывает на `src/styles`, поэтому путь одинаков на любой глубине. Сам импорт не добавляет CSS в сборку.
-
-```scss
-@use '@styles/toolkit' as kit;
-
-.project-card {
-  padding: kit.rem(24);
-
-  @include kit.mobile {
-    padding: kit.rem(16);
-  }
-
-  &__title {
-    @include kit.fluid-text(40, 24);
-  }
-}
+```sh
+npm ci
+npm run dev
 ```
 
-Стили отдельных блоков храните в `src/styles/components/` и подключайте через `@use` в `src/styles/index.scss`. Общие инструменты лежат в `src/styles/toolkit/` и экспортируются через `_index.scss`.
+Open the local URL printed by Vite.
 
-| Файл              | Что в нём менять                                                                                         |
-| ----------------- | -------------------------------------------------------------------------------------------------------- |
-| `_functions.scss` | Пересчёт размеров через `rem` и `fluid`. Передавайте числа без единиц, для `fluid` первым идёт максимум. |
-| `_media.scss`     | Брейкпоинты `laptop`, `tablet`, `mobile`, `mobile-s`, варианты `-above` и миксин `hover`.                |
-| `_mixins.scss`    | `fluid-text`, `square`, `abs-center`, `abs-x`, `abs-y`, `hide`, `show` и `visually-hidden`.              |
+## Production build
 
-Набор включён в проект исходниками. При обновлении сверяйте изменения в каталоге `helpers/` с [исходной версией scss-toolkit](https://github.com/sl1dan3/scss-toolkit/tree/5dc59f6f9b2c2fd25428feada9dfe4cb6547ca6e/helpers) и запускайте `npm run check`.
+```sh
+npm run check
+npm run preview
+```
+
+`npm run check` checks formatting with Prettier, runs ESLint and Stylelint, and builds the production site in `dist/`. The preview command serves that build locally. To run the build alone, use `npm run build`.
+
+## Project layout
+
+- [src/main.jsx](src/main.jsx) mounts the React application and loads the global stylesheet.
+- [src/App.jsx](src/App.jsx) assembles the header, hero, skills, about section and contact footer in page order.
+- [src/components](src/components) contains each section’s JSX and BEM stylesheet side by side. Edit [Skills.jsx](src/components/Skills/Skills.jsx) to update a technology or category. The navigation and theme switch live in [Header](src/components/Header).
+- [src/styles/index.scss](src/styles/index.scss) controls stylesheet order. Theme colors and header height live in [variables.scss](src/styles/variables.scss). Shared sizing functions, breakpoints and mixins live in the [SCSS toolkit](src/styles/toolkit).
+- [public/favicon.svg](public/favicon.svg) supplies the header icon and favicon.
+
+The toolkit is adapted from [scss-toolkit](https://github.com/sl1dan3/scss-toolkit/tree/5dc59f6f9b2c2fd25428feada9dfe4cb6547ca6e/helpers).

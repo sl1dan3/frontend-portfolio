@@ -1,4 +1,9 @@
 :root {
+  color-scheme: light;
+
+  --on-accent: white;
+  --art-background: #edf1ff;
+  --art-dot: #adbde7;
   --footer-background: #16254f;
   --footer-text: #fff;
   --header-height: 5rem;
@@ -6,4 +11,18 @@
   --color-text: #171717;
   --color-accent: #244bd3;
   --color-rule: #d5d9df;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --color-background: #101521;
+  --color-text: #eef2ff;
+  --color-accent: #a4b9ff;
+  --on-accent: #101b35;
+  --color-rule: #455068;
+  --art-background: #1b2642;
+  --art-dot: #526082;
+  --footer-background: #222f50;
+  --footer-text: #f3f5ff;
 }

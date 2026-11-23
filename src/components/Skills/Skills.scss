@@ -33,7 +33,7 @@
     &[aria-selected='true'] {
       border-color: var(--color-accent);
       background: var(--color-accent);
-      color: white;
+      color: var(--on-accent);
       box-shadow: 0 3px 0 #162e80;
     }
   }
@@ -103,6 +103,7 @@
     box-shadow:
       0.45rem 0.45rem #879fff,
       0.9rem 0.9rem #4161c4;
+    color: var(--on-accent);
     font: 600 #{kit.fluid(68, 32)} / 1 monospace;
 
     &--markup {

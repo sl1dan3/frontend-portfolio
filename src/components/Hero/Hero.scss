@@ -38,7 +38,7 @@
     margin-top: 2rem;
     padding: 0.8rem 1.3rem;
     border-radius: 0.4rem;
-    color: white;
+    color: var(--on-accent);
     background: var(--color-accent);
     font-weight: 600;
     text-decoration: none;
@@ -55,8 +55,8 @@
     align-self: stretch;
     border-radius: 0.75rem;
     color: var(--color-accent);
-    background-color: #edf1ff;
-    background-image: radial-gradient(#adbde7 1px, transparent 1px);
+    background-color: var(--art-background);
+    background-image: radial-gradient(var(--art-dot) 1px, transparent 1px);
     background-size: 1rem 1rem;
   }
 
