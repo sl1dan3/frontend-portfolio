@@ -1,0 +1,42 @@
+@use '@styles/toolkit' as kit;
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: kit.rem(80);
+  border-bottom: 1px solid var(--color-rule);
+
+  &__brand {
+    display: inline-flex;
+    border-radius: kit.rem(10);
+  }
+
+  &__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__link {
+    display: inline-block;
+    padding: 0.75rem 0.25rem;
+    color: var(--color-accent);
+    text-underline-offset: 0.35em;
+  }
+
+  &__skip {
+    position: absolute;
+    z-index: 1;
+    padding: 0.75rem;
+    color: var(--color-text);
+    background: var(--color-background);
+
+    &:not(:focus) {
+      @include kit.visually-hidden;
+    }
+  }
+}

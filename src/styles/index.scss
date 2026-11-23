@@ -3,4 +3,6 @@
 @use 'variables';
 @use 'globals';
 @use '../App';
+@use '../components/Header/Header';
+@use '../components/Hero/Hero';
 @use 'utils';
