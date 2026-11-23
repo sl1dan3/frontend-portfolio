@@ -1,0 +1,52 @@
+@use '@styles/toolkit' as kit;
+
+.footer {
+  margin-bottom: kit.fluid(48, 20);
+  padding: kit.fluid(72, 24);
+  border-radius: 1.25rem;
+  background: var(--footer-background);
+  color: var(--footer-text);
+
+  &__title {
+    @include kit.section-title;
+
+    margin: 0 0 2rem;
+  }
+
+  &__contacts {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 1.5rem;
+    font-style: normal;
+  }
+
+  &__link {
+    display: grid;
+    gap: 0.5rem;
+    padding-block: 1rem;
+    border-top: 1px solid currentcolor;
+    color: inherit;
+    overflow-wrap: anywhere;
+    font-size: kit.fluid(28, 18);
+    text-decoration: none;
+
+    @include kit.hover {
+      text-decoration: underline;
+    }
+
+    &:focus-visible {
+      outline-color: currentcolor;
+    }
+  }
+
+  &__label {
+    font-size: 0.875rem;
+  }
+
+  @include kit.mobile {
+    &__contacts {
+      grid-template-columns: 1fr;
+      gap: 0.25rem;
+    }
+  }
+}

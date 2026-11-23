@@ -4,6 +4,7 @@ const navigation = [
   { id: 'home', label: 'Home' },
   { id: 'skills', label: 'Skills' },
   { id: 'about', label: 'About' },
+  { id: 'contact', label: 'Contact' },
 ]
 
 export default function Header() {
