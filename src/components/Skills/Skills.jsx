@@ -15,8 +15,15 @@ const skillGroups = [
   },
   {
     id: 'ui',
-    title: 'UI Development',
-    skills: ['React'],
+    title: 'React Ecosystem',
+    skills: [
+      'React',
+      'Redux Toolkit',
+      'RTK Query',
+      'Axios',
+      'React Hook Form',
+      'Zod',
+    ],
     mark: '< />',
   },
   {
