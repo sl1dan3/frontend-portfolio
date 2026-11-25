@@ -1,6 +1,6 @@
 # Arseniy Dementev — Frontend Engineer
 
-[Visit my website](https://sl1dan3.github.io/personal-site/) · [Читать на русском](#на-русском)
+[Visit my website](https://sl1dan3.github.io/personal-website/) · [Читать на русском](#на-русском)
 
 I built this single-page website to introduce myself, share the tools I use and give people a way to contact me. The skills section supports keyboard navigation. The site follows your system theme and remembers your choice if you switch themes manually.
 
@@ -54,7 +54,7 @@ Each section keeps its markup and styles together. For example, edit [Skills.jsx
 
 ## На русском
 
-[Открыть сайт](https://sl1dan3.github.io/personal-site/)
+[Открыть сайт](https://sl1dan3.github.io/personal-website/)
 
 Я Арсений Дементьев, фронтенд-разработчик. На этом одностраничном сайте я рассказываю о себе, показываю инструменты, с которыми работаю, и оставляю контакты. Вкладки с навыками можно переключать с клавиатуры. Сайт учитывает системную тему и запоминает выбор, если переключить её вручную.
 
